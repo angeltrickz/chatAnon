@@ -35,6 +35,19 @@ io.on('connection',function(socket){
             io.emit('move',socket.player);
         });
 
+        socket.on('myid',function(data){
+
+          socket.emit('myid',socket.player);
+
+          });
+
+        socket.on('chattext',function(data){
+          console.log(data.msg)
+          socket.player.msg = data.msg;
+          socket.broadcast.emit('chattextr',socket.player);
+
+          });
+
         socket.on('disconnect',function(){
             io.emit('remove',socket.player.id);
         });

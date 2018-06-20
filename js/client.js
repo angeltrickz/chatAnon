@@ -5,6 +5,24 @@
 var Client = {};
 Client.socket = io.connect();
 
+
+Client.sendmyid = function(){
+
+    Client.socket.emit('myid');
+};
+
+Client.socket.on('chattextr',function(data){
+    console.log("respuesta :"+data.msg)
+    Game.textMap[data.id].setText(data.msg);
+
+  });
+
+Client.socket.on('myid',function(data){
+    console.log("my id es: "+data.id)
+    myid = data.id;
+    game.camera.follow(Game.playerMap[myid]);
+  });
+
 Client.sendTest = function(){
     console.log("test sent");
     Client.socket.emit('test');
@@ -20,6 +38,7 @@ Client.sendClick = function(x,y){
 
 Client.socket.on('newplayer',function(data){
     Game.addNewPlayer(data.id,data.x,data.y);
+    console.log(data.id)
 });
 
 Client.socket.on('allplayers',function(data){
@@ -35,5 +54,3 @@ Client.socket.on('allplayers',function(data){
         Game.removePlayer(id);
     });
 });
-
-
