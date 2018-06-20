@@ -9,7 +9,7 @@ var myid;
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue!'
+    message: 'Chat'
   },
   methods: {
     onEnter: function() {
@@ -30,6 +30,8 @@ Game.preload = function() {
     game.load.spritesheet('tileset', 'assets/map/tilesheet.png',32,32);
     game.load.image('sprite','assets/sprites/sprite.png');
     game.load.image('background','assets/map/fondo.jpg');
+
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 };
 
 Game.create = function(){
