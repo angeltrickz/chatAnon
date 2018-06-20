@@ -6,11 +6,11 @@
     <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript" src="js/phaser.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Basic multiplayer online game</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
   <div id="app" style="position: fixed; bottom: 50px; left: 5px; "  class="jumbotron">
   <input v-model="message" v-on:keyup.enter="onEnter" />
   <button v-on:click="onEnter" class="btn btn-primary" >Enviar</button>
