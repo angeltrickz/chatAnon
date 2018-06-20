@@ -33,8 +33,8 @@ Game.preload = function() {
 };
 
 Game.create = function(){
-  var layer = game.add.tileSprite(0, 0, 1920, 1920, 'background');
-  game.world.setBounds(0, 0, 1920, 1920);
+  var layer = game.add.tileSprite(0, 0, 1680, 1050, 'background');
+  game.world.setBounds(0, 0, 1680, 1050);
     Game.playerMap = {};
     Game.textMap = {};
     var testKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
@@ -66,11 +66,13 @@ Game.getCoordinates = function(layer,pointer){
 
 Game.addNewPlayer = function(id,x,y){
     Game.playerMap[id] = game.add.sprite(x,y,'sprite');
+    Game.playerMap[id].anchor.setTo(0.5,0);
     Game.textMap[id] = game.add.text(30, 30, "chat", {
             font: "20px Arial",
             fill: "#ff0044",
             align: "center"
         });
+    Game.textMap[id].anchor.setTo(0.5);
 
 };
 
@@ -98,7 +100,7 @@ Game.update = function(){
         Game.textMap[i].addColor('#ff0044', 0) ;
       }
 
-      Game.textMap[i].position.x = Game.playerMap[i].position.x+5;
+      Game.textMap[i].position.x = Game.playerMap[i].position.x;
       Game.textMap[i].position.y = Game.playerMap[i].position.y-15;
     };
   }catch(error){
